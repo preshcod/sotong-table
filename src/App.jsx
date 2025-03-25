@@ -13,10 +13,8 @@ const App = () => {
       try {
         const response = await axios.get("https://api.restful-api.dev/objects");
         setData(response.data);
-
-        console.log(response);
       } catch (error) {
-        console.log(error);
+        console.error(error);
         setError("Error ocurred! unable to fetch data");
       } finally {
         setIsLoading(false);
@@ -26,7 +24,6 @@ const App = () => {
     fetchData();
   }, []);
 
-  // console.log(data);
   if (isLoading) {
     return (
       <div className="w-full h-screen flex items-center justify-center">
